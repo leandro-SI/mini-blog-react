@@ -24,6 +24,7 @@ import {
         }
     }
 
+    // Função de registro
     const createUser = async (data) => {
         checkIfIsCancelled()
 
@@ -67,6 +68,13 @@ import {
         setLoading(false)        
     }
 
+    // Função de Logout - sign out
+    const logout = () => {
+
+        checkIfIsCancelled();
+        signOut(auth)
+    }
+
     useEffect(() => {
         return () => setCancelled(true)
     }, [])
@@ -75,6 +83,7 @@ import {
         auth,
         createUser,
         error,
-        loading
+        loading,
+        logout
     }
  }
