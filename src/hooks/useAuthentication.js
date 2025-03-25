@@ -75,6 +75,38 @@ import {
         signOut(auth)
     }
 
+    // Função de Login - SIgn in
+    const login = async (data) => {
+
+        console.log("DATA: ", data);
+        
+        checkIfIsCancelled()
+
+        setLoading(true)
+        setError(null)
+
+        try {
+            
+            await signInWithEmailAndPassword(auth, data.email, data.password);
+
+        } catch (error) {
+            
+            console.log("ERRO: ", error)
+            let systemErrorMessase;
+
+            if (error.message.includes("auth/invalid-credential")) {
+                systemErrorMessase = "Usuário não encontrado."
+            } else if (error.message.includes("wrong-password")){
+                systemErrorMessase = "Senha incorreta."
+            } else {
+                systemErrorMessase = "Ocorreu um erro, por favor, tente mais tarde."
+            }
+
+            setError(systemErrorMessase)
+            setLoading(false);
+        }
+    }
+
     useEffect(() => {
         return () => setCancelled(true)
     }, [])
@@ -84,6 +116,7 @@ import {
         createUser,
         error,
         loading,
-        logout
+        logout,
+        login
     }
  }
