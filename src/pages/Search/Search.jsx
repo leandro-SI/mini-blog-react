@@ -2,7 +2,7 @@ import styles from "./Search.module.css";
 import React from 'react'
 
 // hooks
-import { useFetchDocuments } from "../../hooks/useFetchDocument";
+import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useQuery } from "../../hooks/useQuery";
 
 // components

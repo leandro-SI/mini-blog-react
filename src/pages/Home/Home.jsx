@@ -4,7 +4,7 @@ import styles from "./Home.module.css";
 // hooks
 import React, { useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
-import { useFetchDocuments } from '../../hooks/useFetchDocument';
+import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import PostDetails from '../../components/PostDetails';
 
 
